@@ -1,7 +1,5 @@
 const needle = require('needle');
 
-const args = process.argv.slice(2);
-const breedName = args[0];
 
 const fetchBreedDescription = (breedName, callback) => {
   const apiCall = `https://api.thecatapi.com/v1/breeds/search?q=${breedName}`;
@@ -29,13 +27,7 @@ const fetchBreedDescription = (breedName, callback) => {
   });
 };
 
-const handleFetchResults = (error, data) => {
-  if (error) {
-    console.log("Error:", error);
-  } else {
-    console.log(`${breedName}: `, data);
-  }
-};
 
-fetchBreedDescription(breedName, handleFetchResults);
+
+module.exports = { fetchBreedDescription };
 
